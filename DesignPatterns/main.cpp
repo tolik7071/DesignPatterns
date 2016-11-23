@@ -12,6 +12,7 @@
 #include "Builder.hpp"
 #include "AbstractMethod.hpp"
 #include "Prototype.hpp"
+#include "Singleton.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -128,6 +129,17 @@ int main(int argc, const char * argv[])
         
         DeletePerson(person);
         DeletePerson(clone);
+    }
+    
+    {
+        using namespace Singleton;
+        
+        const Display& display = Display::GetSharedInstance();
+        std::cout << display.height() << "x" << display.width() << std::endl;
+    }
+    
+    {
+        // std::atexit
     }
     
     return 0;

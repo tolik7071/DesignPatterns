@@ -22,7 +22,9 @@ namespace Singleton
         
         static const Display& GetSharedInstance();
         
-        private:
+        protected:
+        
+        static void CleanUp();
         
         Display() {}
         ~Display() {}

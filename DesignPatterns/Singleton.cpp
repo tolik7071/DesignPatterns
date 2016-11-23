@@ -7,6 +7,8 @@
 //
 
 #include "Singleton.hpp"
+#include <cstdlib>
+#include "common.h"
 
 using namespace Singleton;
 
@@ -20,14 +22,22 @@ unsigned int Display::height() const
     return 1080U;
 }
 
+static Singleton::Display* gInstance = nullptr;
+
+/*static */void Singleton::Display::CleanUp()
+{
+    delete gInstance;
+    gInstance = NULL;
+    LOG_FUNCTION();
+}
+
 /*static */const Singleton::Display& Singleton::Display::GetSharedInstance()
 {
-    static Singleton::Display* instance = nullptr;
-    
-    if (instance == nullptr)
+    if (gInstance == nullptr)
     {
-        instance = new Display();
+        gInstance = new Display();
+        std::atexit(CleanUp);
     }
     
-    return *instance;
+    return *gInstance;
 }
