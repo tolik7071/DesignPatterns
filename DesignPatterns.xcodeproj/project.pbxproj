@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A1900831DE0506C002F5CF7 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A1900811DE0506C002F5CF7 /* Singleton.cpp */; };
 		5A4E97041DDAE227002BE7F4 /* Prototype.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A4E97021DDAE227002BE7F4 /* Prototype.cpp */; };
 		5A7536E41DCDE58C008F1F52 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A7536E31DCDE58C008F1F52 /* main.cpp */; };
 		5A7536EC1DCDE5C9008F1F52 /* AbstractFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A7536EA1DCDE5C9008F1F52 /* AbstractFactory.cpp */; };
@@ -27,6 +28,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5A1900811DE0506C002F5CF7 /* Singleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Singleton.cpp; sourceTree = "<group>"; };
+		5A1900821DE0506C002F5CF7 /* Singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Singleton.hpp; sourceTree = "<group>"; };
 		5A4E97021DDAE227002BE7F4 /* Prototype.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Prototype.cpp; sourceTree = "<group>"; };
 		5A4E97031DDAE227002BE7F4 /* Prototype.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Prototype.hpp; sourceTree = "<group>"; };
 		5A7536E01DCDE58C008F1F52 /* DesignPatterns */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DesignPatterns; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +83,8 @@
 				5ADF9BD91DD726AA00191A54 /* AbstractMethod.cpp */,
 				5A4E97031DDAE227002BE7F4 /* Prototype.hpp */,
 				5A4E97021DDAE227002BE7F4 /* Prototype.cpp */,
+				5A1900821DE0506C002F5CF7 /* Singleton.hpp */,
+				5A1900811DE0506C002F5CF7 /* Singleton.cpp */,
 			);
 			path = DesignPatterns;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 				5ADF9BDB1DD726AA00191A54 /* AbstractMethod.cpp in Sources */,
 				5A7536EC1DCDE5C9008F1F52 /* AbstractFactory.cpp in Sources */,
 				5A7536E41DCDE58C008F1F52 /* main.cpp in Sources */,
+				5A1900831DE0506C002F5CF7 /* Singleton.cpp in Sources */,
 				5A4E97041DDAE227002BE7F4 /* Prototype.cpp in Sources */,
 				5ADF9BD71DD2F85400191A54 /* Builder.cpp in Sources */,
 			);
