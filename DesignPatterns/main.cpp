@@ -13,6 +13,7 @@
 #include "AbstractMethod.hpp"
 #include "Prototype.hpp"
 #include "Singleton.hpp"
+#include "Adapter.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -139,7 +140,17 @@ int main(int argc, const char * argv[])
     }
     
     {
-        // std::atexit
+        using namespace Adapter;
+        
+        Drawer drawer;
+        
+        drawer.mShapes.push_back(new Line);
+        drawer.mShapes.push_back(new Polyline);
+        drawer.mShapes.push_back(new Text);
+        
+        drawer.mShapes.push_back(new NewTextViewAdapter(std::unique_ptr<NewTextView>(new NewTextView())));
+        
+        drawer.DrawShapes();
     }
     
     return 0;
