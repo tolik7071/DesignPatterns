@@ -61,6 +61,59 @@ namespace Bridge
         std::string mName;
     };
 */
+    
+    class IWindow
+    {
+        public:
+        
+        virtual void Draw() = 0;
+    };
+    
+    class IWindowManager
+    {
+        public:
+        
+        virtual void ProcessWindows() = 0;
+    };
+    
+    /* ***** ***** ***** ***** ***** ***** */
+    
+    class WindowManagerBase : public IWindowManager
+    {
+        public:
+        
+        virtual ~WindowManagerBase();
+        
+//        typedef std::vector<IWindow* > TArray;
+//        TArray mWindows;
+    };
+    
+    class WindowManagerWinOS : WindowManagerBase
+    {
+        public:
+        
+        virtual void ProcessWindows();
+    };
+    
+    class WindowManagerUbuntuOS : WindowManagerBase
+    {
+        public:
+        
+        virtual void ProcessWindows();
+    };
+    
+    /* ***** ***** ***** ***** ***** ***** */
+    
+    class GraphicSystem
+    {
+        public:
+        
+        GraphicSystem(std::unique_ptr<WindowManagerBase* > manager);
+        
+        private:
+        
+        std::unique_ptr<WindowManagerBase* > mWindowsManager;
+    };
 }
 
 #endif /* Bridge_hpp */
