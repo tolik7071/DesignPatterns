@@ -11,6 +11,7 @@
 		5A4E97041DDAE227002BE7F4 /* Prototype.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A4E97021DDAE227002BE7F4 /* Prototype.cpp */; };
 		5A7536E41DCDE58C008F1F52 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A7536E31DCDE58C008F1F52 /* main.cpp */; };
 		5A7536EC1DCDE5C9008F1F52 /* AbstractFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A7536EA1DCDE5C9008F1F52 /* AbstractFactory.cpp */; };
+		5A8B0CAF1DE9C04D00AA080A /* Bridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B0CAD1DE9C04D00AA080A /* Bridge.cpp */; };
 		5ABD7C211DE577D20038140D /* Adapter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ABD7C1F1DE577D20038140D /* Adapter.cpp */; };
 		5ADF9BD71DD2F85400191A54 /* Builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF9BD51DD2F85400191A54 /* Builder.cpp */; };
 		5ADF9BDB1DD726AA00191A54 /* AbstractMethod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF9BD91DD726AA00191A54 /* AbstractMethod.cpp */; };
@@ -37,6 +38,8 @@
 		5A7536E31DCDE58C008F1F52 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		5A7536EA1DCDE5C9008F1F52 /* AbstractFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AbstractFactory.cpp; sourceTree = "<group>"; };
 		5A7536EB1DCDE5C9008F1F52 /* AbstractFactory.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AbstractFactory.hpp; sourceTree = "<group>"; };
+		5A8B0CAD1DE9C04D00AA080A /* Bridge.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bridge.cpp; sourceTree = "<group>"; };
+		5A8B0CAE1DE9C04D00AA080A /* Bridge.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Bridge.hpp; sourceTree = "<group>"; };
 		5ABD7C1F1DE577D20038140D /* Adapter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Adapter.cpp; sourceTree = "<group>"; };
 		5ABD7C201DE577D20038140D /* Adapter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Adapter.hpp; sourceTree = "<group>"; };
 		5ADF9BD51DD2F85400191A54 /* Builder.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Builder.cpp; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 				5A1900811DE0506C002F5CF7 /* Singleton.cpp */,
 				5ABD7C201DE577D20038140D /* Adapter.hpp */,
 				5ABD7C1F1DE577D20038140D /* Adapter.cpp */,
+				5A8B0CAE1DE9C04D00AA080A /* Bridge.hpp */,
+				5A8B0CAD1DE9C04D00AA080A /* Bridge.cpp */,
 			);
 			path = DesignPatterns;
 			sourceTree = "<group>";
@@ -150,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A8B0CAF1DE9C04D00AA080A /* Bridge.cpp in Sources */,
 				5ADF9BDB1DD726AA00191A54 /* AbstractMethod.cpp in Sources */,
 				5A7536EC1DCDE5C9008F1F52 /* AbstractFactory.cpp in Sources */,
 				5ABD7C211DE577D20038140D /* Adapter.cpp in Sources */,
