@@ -82,23 +82,30 @@ namespace Bridge
     {
         public:
         
-        virtual ~WindowManagerBase();
+        virtual void createWindow(const char * title) = 0;
+        virtual void ProcessWindows() = 0;
         
-//        typedef std::vector<IWindow* > TArray;
-//        TArray mWindows;
+        protected:
+        
+        void addWindow(std::unique_ptr<IWindow> window);
+        
+        typedef std::vector<std::unique_ptr<IWindow> > TArray;
+        TArray mWindows;
     };
     
-    class WindowManagerWinOS : WindowManagerBase
+    class WindowManagerWinOS : public WindowManagerBase
     {
         public:
         
+        virtual void createWindow(const char * title);
         virtual void ProcessWindows();
     };
     
-    class WindowManagerUbuntuOS : WindowManagerBase
+    class WindowManagerUbuntuOS : public WindowManagerBase
     {
         public:
         
+        virtual void createWindow(const char * title);
         virtual void ProcessWindows();
     };
     
@@ -108,11 +115,9 @@ namespace Bridge
     {
         public:
         
-        GraphicSystem(std::unique_ptr<WindowManagerBase* > manager);
+        GraphicSystem(std::unique_ptr<WindowManagerBase> manager);
         
-        private:
-        
-        std::unique_ptr<WindowManagerBase* > mWindowsManager;
+        std::unique_ptr<WindowManagerBase> mWindowsManager;
     };
 }
 

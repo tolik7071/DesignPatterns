@@ -14,6 +14,7 @@
 #include "Prototype.hpp"
 #include "Singleton.hpp"
 #include "Adapter.hpp"
+#include "Bridge.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -151,6 +152,18 @@ int main(int argc, const char * argv[])
         drawer.mShapes.push_back(new NewTextViewAdapter(std::unique_ptr<NewTextView>(new NewTextView())));
         
         drawer.DrawShapes();
+    }
+    
+    {
+        using namespace Bridge;
+        
+        GraphicSystem gs(std::unique_ptr<WindowManagerBase>(new WindowManagerUbuntuOS()));
+        
+        gs.mWindowsManager->createWindow("WOW!");
+        gs.mWindowsManager->createWindow("Test");
+        gs.mWindowsManager->createWindow("utility");
+        
+        gs.mWindowsManager->ProcessWindows();
     }
     
     return 0;
