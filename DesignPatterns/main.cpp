@@ -157,11 +157,9 @@ int main(int argc, const char * argv[])
     {
         using namespace Bridge;
         
-        GraphicSystem gs(std::unique_ptr<WindowManagerBase>(new WindowManagerUbuntuOS()));
-        
-        gs.mWindowsManager->createWindow("WOW!");
-        gs.mWindowsManager->createWindow("Test");
-        gs.mWindowsManager->createWindow("utility");
+        GraphicSystem gs(std::unique_ptr<IWindowManager>(new UbuntuManager()));
+        gs.mWindowsManager->createWindow("First Window");
+        gs.mWindowsManager->createWindow("Second Window");
         
         gs.mWindowsManager->ProcessWindows();
     }

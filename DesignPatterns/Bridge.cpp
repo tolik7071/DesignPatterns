@@ -7,78 +7,88 @@
 //
 
 #include "Bridge.hpp"
-#include "common.h"
+
+namespace Bridge
+{
+    class WindowOnUbuntu : public IWindow
+    {
+        public:
+        
+        WindowOnUbuntu(const char * title)
+            : mTitle(title)
+        {
+            LOG_FUNCTION();
+        }
+        
+        virtual void Draw()
+        {
+            LOG_FUNCTION();
+        }
+        
+        std::string mTitle;
+    };
+}
+
+namespace Bridge
+{
+    class WindowOnWindows : public IWindow
+    {
+    public:
+        
+        WindowOnWindows(const char * title)
+        : mTitle(title)
+        {
+            LOG_FUNCTION();
+        }
+        
+        virtual void Draw()
+        {
+            LOG_FUNCTION();
+        }
+        
+        std::string mTitle;
+    };
+}
 
 using namespace Bridge;
 
-void WindowManagerBase::addWindow(std::unique_ptr<IWindow> window)
+void BaseManager::addWindow(std::shared_ptr<IWindow> window)
 {
     mWindows.push_back(window);
 }
 
-class WindowWinOS : public IWindow
+std::shared_ptr<IWindow> UbuntuManager::createWindow(const char * title)
 {
-    public:
+    std::shared_ptr<IWindow> result(new WindowOnUbuntu(title));
+    addWindow(result);
     
-    WindowWinOS(const char * name)
-        : mName(name)
-    {
-        
-    }
-    
-    virtual ~WindowWinOS()
-    {
-        LOG_FUNCTION();
-    }
-    
-    virtual void Draw()
-    {
-        std::cout << __FUNCTION__ << mName << std::endl;
-    }
-    
-    std::string mName;
-};
-
-class WindowUbuntuOS : public IWindow
-{
-public:
-    
-    WindowUbuntuOS(const char * name)
-        : mName(name)
-    {
-        
-    }
-    
-    virtual ~WindowUbuntuOS()
-    {
-        LOG_FUNCTION();
-    }
-    
-    virtual void Draw()
-    {
-        std::cout << __FUNCTION__ << mName << std::endl;
-    }
-    
-    std::string mName;
-};
-
-void WindowManagerWinOS::createWindow(const char *title)
-{
-    addWindow(std::unique_ptr<IWindow>(new WindowWinOS(title)));
+    return result;
 }
 
-void WindowManagerUbuntuOS::createWindow(const char *title)
+void UbuntuManager::ProcessWindows()
 {
-    addWindow(std::unique_ptr<IWindow>(new WindowUbuntuOS(title)));
+    std::for_each(mWindows.begin(), mWindows.end(),
+        [](std::shared_ptr<IWindow> window)
+        {
+            window->Draw();
+        }
+    );
 }
 
-void WindowManagerWinOS::ProcessWindows()
+std::shared_ptr<IWindow> WindowsManager::createWindow(const char * title)
 {
-    std::for_each(mWindows.begin(), mWindows.end(), [](IWindow* window) { window->Draw(); } );
+    std::shared_ptr<IWindow> result(new WindowOnWindows(title));
+    addWindow(result);
+    
+    return result;
 }
 
-void WindowManagerUbuntuOS::ProcessWindows()
+void WindowsManager::ProcessWindows()
 {
-    std::for_each(mWindows.begin(), mWindows.end(), [](IWindow* window) { window->Draw(); } );
+    std::for_each(mWindows.begin(), mWindows.end(),
+        [](std::shared_ptr<IWindow> window)
+        {
+            window->Draw();
+        }
+    );
 }
-

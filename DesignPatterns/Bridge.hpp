@@ -11,101 +11,62 @@
 
 #include <vector>
 #include <string>
+#include "common.h"
 
 namespace Bridge
 {
-/*
-    typedef int TError;
-    typedef unsigned char TByte;
-    
-    class FileSystemImpl
-    {
-        public:
-        
-        virtual TError writeHeader(...) = 0;
-        virtual TError write(const TByte* bytes) = 0;
-        virtual TError read(TByte* bytes) = 0;
-    };
-    
-    class FileSystemItem
-    {
-        public:
-        
-        enum ItemType
-        {
-            kFolder,
-            kFile
-        };
-        
-        FileSystemItem(const char * name, ItemType type);
-        virtual ~FileSystemItem();
-        
-        ItemType type() const;
-        const char * name() const;
-        
-        bool addChild(FileSystemItem* child);
-        bool removeChild(FileSystemItem* child);
-        
-        size_t numberOfChildren() const;
-        std::shared_ptr<FileSystemItem* > childAtIndex(size_t index);
-        
-        static FileSystemItem* CreateRoot(FileSystemImpl* impl);
-        
-        protected:
-        
-        FileSystemItem(FileSystemImpl* impl);
-        
-        typedef std::vector<std::shared_ptr<FileSystemItem* > > TArray;
-        TArray mChildren;
-        
-        std::string mName;
-    };
-*/
-    
     class IWindow
     {
         public:
         
         virtual void Draw() = 0;
+        
+        virtual ~IWindow()
+        {
+            LOG_FUNCTION();
+        }
     };
     
     class IWindowManager
     {
         public:
         
+        virtual std::shared_ptr<IWindow> createWindow(const char * title) = 0;
         virtual void ProcessWindows() = 0;
+        
+        virtual ~IWindowManager()
+        {
+            LOG_FUNCTION();
+        }
     };
     
     /* ***** ***** ***** ***** ***** ***** */
     
-    class WindowManagerBase : public IWindowManager
+    class BaseManager : public IWindowManager
     {
         public:
         
-        virtual void createWindow(const char * title) = 0;
-        virtual void ProcessWindows() = 0;
+        void addWindow(std::shared_ptr<IWindow> window);
         
         protected:
         
-        void addWindow(std::unique_ptr<IWindow> window);
-        
-        typedef std::vector<std::unique_ptr<IWindow> > TArray;
+        typedef std::vector<std::shared_ptr<IWindow> > TArray;
         TArray mWindows;
     };
     
-    class WindowManagerWinOS : public WindowManagerBase
+    class UbuntuManager : public BaseManager
     {
         public:
         
-        virtual void createWindow(const char * title);
+        virtual std::shared_ptr<IWindow> createWindow(const char * title);
         virtual void ProcessWindows();
     };
     
-    class WindowManagerUbuntuOS : public WindowManagerBase
+    class WindowsManager : public BaseManager
     {
         public:
         
-        virtual void createWindow(const char * title);
+        virtual std::shared_ptr<IWindow> createWindow(const char * title);
         virtual void ProcessWindows();
     };
     
@@ -115,9 +76,12 @@ namespace Bridge
     {
         public:
         
-        GraphicSystem(std::unique_ptr<WindowManagerBase> manager);
+        GraphicSystem(std::unique_ptr<IWindowManager> manager)
+        {
+            mWindowsManager = std::move(manager);
+        }
         
-        std::unique_ptr<WindowManagerBase> mWindowsManager;
+        std::unique_ptr<IWindowManager> mWindowsManager;
     };
 }
 
