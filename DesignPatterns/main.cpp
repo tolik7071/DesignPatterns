@@ -15,6 +15,7 @@
 #include "Singleton.hpp"
 #include "Adapter.hpp"
 #include "Bridge.hpp"
+#include "Composite.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -160,8 +161,28 @@ int main(int argc, const char * argv[])
         GraphicSystem gs(std::unique_ptr<IWindowManager>(new UbuntuManager()));
         gs.mWindowsManager->createWindow("First Window");
         gs.mWindowsManager->createWindow("Second Window");
-        
         gs.mWindowsManager->ProcessWindows();
+        
+        gs.mWindowsManager = std::move(std::unique_ptr<IWindowManager>(new WindowsManager()));
+        gs.mWindowsManager->createWindow("First Window");
+        gs.mWindowsManager->createWindow("Second Window");
+        gs.mWindowsManager->ProcessWindows();
+    }
+    
+    {
+        using namespace Composite;
+        
+        std::shared_ptr<Composite::Graphic> line1(new Composite::Line());
+        std::shared_ptr<Composite::Graphic> line2(new Composite::Line());
+        std::shared_ptr<Composite::Graphic> rect1(new Composite::Rectangle());
+        std::shared_ptr<Composite::Graphic> rect2(new Composite::Rectangle());
+        std::shared_ptr<Composite::Graphic> rect3(new Composite::Rectangle());
+        
+        std::shared_ptr<Composite::Graphic> picture(new Composite::Picture());
+        picture->add(line1);
+        picture->add(rect2);
+        picture->add(rect3);
+        picture->Draw();
     }
     
     return 0;

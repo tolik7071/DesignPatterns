@@ -15,6 +15,7 @@
 		5ABD7C211DE577D20038140D /* Adapter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ABD7C1F1DE577D20038140D /* Adapter.cpp */; };
 		5ADF9BD71DD2F85400191A54 /* Builder.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF9BD51DD2F85400191A54 /* Builder.cpp */; };
 		5ADF9BDB1DD726AA00191A54 /* AbstractMethod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5ADF9BD91DD726AA00191A54 /* AbstractMethod.cpp */; };
+		5AF5350F1DF69A06008C3443 /* Composite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5350D1DF69A06008C3443 /* Composite.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +48,8 @@
 		5ADF9BD81DD4542D00191A54 /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		5ADF9BD91DD726AA00191A54 /* AbstractMethod.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AbstractMethod.cpp; sourceTree = "<group>"; };
 		5ADF9BDA1DD726AA00191A54 /* AbstractMethod.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AbstractMethod.hpp; sourceTree = "<group>"; };
+		5AF5350D1DF69A06008C3443 /* Composite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Composite.cpp; sourceTree = "<group>"; };
+		5AF5350E1DF69A06008C3443 /* Composite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Composite.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 				5ABD7C1F1DE577D20038140D /* Adapter.cpp */,
 				5A8B0CAE1DE9C04D00AA080A /* Bridge.hpp */,
 				5A8B0CAD1DE9C04D00AA080A /* Bridge.cpp */,
+				5AF5350E1DF69A06008C3443 /* Composite.hpp */,
+				5AF5350D1DF69A06008C3443 /* Composite.cpp */,
 			);
 			path = DesignPatterns;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 				5A7536E41DCDE58C008F1F52 /* main.cpp in Sources */,
 				5A1900831DE0506C002F5CF7 /* Singleton.cpp in Sources */,
 				5A4E97041DDAE227002BE7F4 /* Prototype.cpp in Sources */,
+				5AF5350F1DF69A06008C3443 /* Composite.cpp in Sources */,
 				5ADF9BD71DD2F85400191A54 /* Builder.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
