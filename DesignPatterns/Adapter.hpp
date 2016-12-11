@@ -10,6 +10,7 @@
 #define Adapter_hpp
 
 #include <vector>
+#include <memory>
 
 namespace Adapter
 {

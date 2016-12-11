@@ -6,6 +6,10 @@
 //  Copyright © 2016 Anatoliy Goodz. All rights reserved.
 //
 
+
+#if defined(_MSC_VER)
+#include "stdafx.h"
+#endif // _MSC_VER
 #include <iostream>
 #include <memory>
 #include "AbstractFactory.hpp"
@@ -67,8 +71,8 @@ int main(int argc, const char * argv[])
         {
             public:
             
-            A() { std::cout << __PRETTY_FUNCTION__ << ": " << (const void *)this << std::endl; }
-            ~A() { std::cout << __PRETTY_FUNCTION__ << ": " << (const void *)this << std::endl; }
+            A() { std::cout << __FUNCTION__ << ": " << (const void *)this << std::endl; }
+            ~A() { std::cout << __FUNCTION__ << ": " << (const void *)this << std::endl; }
         };
      
         /* ********************************************* */

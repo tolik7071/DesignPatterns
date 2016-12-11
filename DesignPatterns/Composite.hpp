@@ -10,6 +10,7 @@
 #define Composite_hpp
 
 #include <vector>
+#include <memory>
 #include "common.h"
 
 namespace Composite

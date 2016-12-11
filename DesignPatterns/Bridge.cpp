@@ -6,7 +6,11 @@
 //  Copyright © 2016 Anatoliy Goodz. All rights reserved.
 //
 
+#if defined(_MSC_VER)
+#include "stdafx.h"
+#endif // _MSC_VER
 #include "Bridge.hpp"
+#include <algorithm>
 
 namespace Bridge
 {

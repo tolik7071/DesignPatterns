@@ -15,7 +15,7 @@
 
 #define LOG_FUNCTION() \
 { \
-    std::cout << __PRETTY_FUNCTION__ << std::endl; \
+    std::cout << __FUNCTION__ << std::endl; \
 }
 
 #endif // __cplusplus
