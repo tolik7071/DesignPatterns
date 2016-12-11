@@ -20,6 +20,7 @@
 #include "Adapter.hpp"
 #include "Bridge.hpp"
 #include "Composite.hpp"
+#include "Decorator.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -182,11 +183,39 @@ int main(int argc, const char * argv[])
         std::shared_ptr<Composite::Graphic> rect2(new Composite::Rectangle());
         std::shared_ptr<Composite::Graphic> rect3(new Composite::Rectangle());
         
-        std::shared_ptr<Composite::Graphic> picture(new Composite::Picture());
-        picture->add(line1);
-        picture->add(rect2);
-        picture->add(rect3);
-        picture->Draw();
+        std::shared_ptr<Composite::Graphic> picture1(new Composite::Picture());
+        picture1->add(line1);
+        picture1->add(rect2);
+        picture1->add(rect3);
+        picture1->Draw();
+        
+        std::shared_ptr<Composite::Graphic> picture2(new Composite::Picture());
+        picture2->add(rect2);
+        picture2->add(picture1);
+        picture2->Draw();
+        
+        try
+        {
+            line1->childAtIndex(0);
+        }
+        catch (std::exception& ex)
+        {
+            std::cout << "Ops!" << std::endl;
+        }
+    }
+    
+    {
+        using namespace Decorator;
+        
+        std::shared_ptr<TextView> textView(new TextView());
+        
+        std::shared_ptr<ScrollDecorator> scrollView(new ScrollDecorator());
+        scrollView->setWrappedObject(textView);
+        scrollView->draw();
+        
+        std::shared_ptr<BorderDecorator> borderDecorator(new BorderDecorator());
+        borderDecorator->setWrappedObject(textView);
+        borderDecorator->draw();
     }
     
     return 0;

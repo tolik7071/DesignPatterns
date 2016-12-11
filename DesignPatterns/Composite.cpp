@@ -16,20 +16,31 @@ using namespace Composite;
 
 void Composite::Graphic::add(std::shared_ptr<Graphic> graphic)
 {
-    mChildren.push_back(graphic);
+    if (isComposite())
+    {
+        mChildren.push_back(graphic);
+    }
 }
 
 void Composite::Graphic::remove(std::shared_ptr<Graphic> graphic)
 {
-    TArray::const_iterator deleted = std::find(mChildren.begin(), mChildren.end(), graphic);
-    if (deleted != mChildren.end())
+    if (isComposite())
     {
-        mChildren.erase(deleted);
+        TArray::const_iterator deleted = std::find(mChildren.begin(), mChildren.end(), graphic);
+        if (deleted != mChildren.end())
+        {
+            mChildren.erase(deleted);
+        }
     }
 }
 
 std::shared_ptr<Composite::Graphic> Composite::Graphic::childAtIndex(size_t index)
 {
+    if (! isComposite())
+    {
+        throw std::exception();
+    }
+    
     return mChildren.at(index);
 }
 

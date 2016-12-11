@@ -22,7 +22,8 @@ namespace Composite
         Graphic() {}
         virtual ~Graphic() { LOG_FUNCTION(); }
         
-        virtual void Draw() {}
+        virtual bool isComposite() { return false; }
+        virtual void Draw() = 0;
         
         void add(std::shared_ptr<Graphic> graphic);
         void remove(std::shared_ptr<Graphic> graphic);
@@ -58,6 +59,7 @@ namespace Composite
         
         Picture() {}
         
+        virtual bool isComposite() { return true; }
         virtual void Draw();
     };
 }
