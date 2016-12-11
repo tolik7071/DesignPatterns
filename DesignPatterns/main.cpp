@@ -200,7 +200,7 @@ int main(int argc, const char * argv[])
         }
         catch (std::exception& ex)
         {
-            std::cout << "Ops!" << std::endl;
+            std::cout << "Ops!" << ex.what() << std::endl;
         }
     }
     

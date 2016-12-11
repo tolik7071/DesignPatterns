@@ -10,6 +10,7 @@
 #define Decorator_hpp
 
 #include <vector>
+#include <memory>
 
 namespace Decorator
 {
