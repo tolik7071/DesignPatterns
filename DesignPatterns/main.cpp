@@ -21,6 +21,7 @@
 #include "Bridge.hpp"
 #include "Composite.hpp"
 #include "Decorator.hpp"
+#include "Facade.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -216,6 +217,11 @@ int main(int argc, const char * argv[])
         std::shared_ptr<BorderDecorator> borderDecorator(new BorderDecorator());
         borderDecorator->setWrappedObject(textView);
         borderDecorator->draw();
+    }
+    
+    {
+        using namespace Facade;
+        
     }
     
     return 0;

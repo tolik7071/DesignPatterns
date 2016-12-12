@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5A1900831DE0506C002F5CF7 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A1900811DE0506C002F5CF7 /* Singleton.cpp */; };
 		5A4E97041DDAE227002BE7F4 /* Prototype.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A4E97021DDAE227002BE7F4 /* Prototype.cpp */; };
+		5A71EAC31DFE7F140015F85B /* Facade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A71EAC11DFE7F140015F85B /* Facade.cpp */; };
 		5A7536E41DCDE58C008F1F52 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A7536E31DCDE58C008F1F52 /* main.cpp */; };
 		5A7536EC1DCDE5C9008F1F52 /* AbstractFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A7536EA1DCDE5C9008F1F52 /* AbstractFactory.cpp */; };
 		5A8B0CAF1DE9C04D00AA080A /* Bridge.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A8B0CAD1DE9C04D00AA080A /* Bridge.cpp */; };
@@ -36,6 +37,8 @@
 		5A1900821DE0506C002F5CF7 /* Singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Singleton.hpp; sourceTree = "<group>"; };
 		5A4E97021DDAE227002BE7F4 /* Prototype.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Prototype.cpp; sourceTree = "<group>"; };
 		5A4E97031DDAE227002BE7F4 /* Prototype.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Prototype.hpp; sourceTree = "<group>"; };
+		5A71EAC11DFE7F140015F85B /* Facade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Facade.cpp; sourceTree = "<group>"; };
+		5A71EAC21DFE7F140015F85B /* Facade.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Facade.hpp; sourceTree = "<group>"; };
 		5A7536E01DCDE58C008F1F52 /* DesignPatterns */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = DesignPatterns; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7536E31DCDE58C008F1F52 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		5A7536EA1DCDE5C9008F1F52 /* AbstractFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AbstractFactory.cpp; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 				5AF5350D1DF69A06008C3443 /* Composite.cpp */,
 				5AD53C871DF934E6002C23BA /* Decorator.hpp */,
 				5AD53C861DF934E6002C23BA /* Decorator.cpp */,
+				5A71EAC21DFE7F140015F85B /* Facade.hpp */,
+				5A71EAC11DFE7F140015F85B /* Facade.cpp */,
 			);
 			path = DesignPatterns;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 				5ADF9BDB1DD726AA00191A54 /* AbstractMethod.cpp in Sources */,
 				5A7536EC1DCDE5C9008F1F52 /* AbstractFactory.cpp in Sources */,
 				5ABD7C211DE577D20038140D /* Adapter.cpp in Sources */,
+				5A71EAC31DFE7F140015F85B /* Facade.cpp in Sources */,
 				5A7536E41DCDE58C008F1F52 /* main.cpp in Sources */,
 				5AD53C881DF934E6002C23BA /* Decorator.cpp in Sources */,
 				5A1900831DE0506C002F5CF7 /* Singleton.cpp in Sources */,
