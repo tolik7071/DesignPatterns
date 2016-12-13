@@ -222,6 +222,9 @@ int main(int argc, const char * argv[])
     {
         using namespace Facade;
         
+        Desktop desktop;
+        desktop.create();
+        desktop.Draw();
     }
     
     return 0;
