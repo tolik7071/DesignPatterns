@@ -13,9 +13,15 @@
 
 #include <iostream>
 
-#define LOG_FUNCTION() \
-{ \
-    std::cout << __FUNCTION__ << std::endl; \
+#if defined(__GNUC__)
+#define __FUNCTION_NAME__ __PRETTY_FUNCTION__
+#else
+#define __FUNCTION_NAME__ __FUNCTION__
+#endif
+
+#define LOG_FUNCTION()                           \
+{                                                \
+    std::cout << __FUNCTION_NAME__ << std::endl; \
 }
 
 #endif // __cplusplus

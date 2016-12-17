@@ -22,6 +22,7 @@
 #include "Composite.hpp"
 #include "Decorator.hpp"
 #include "Facade.hpp"
+#include "Flyweight.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -225,6 +226,22 @@ int main(int argc, const char * argv[])
         Desktop desktop;
         desktop.create();
         desktop.Draw();
+    }
+    
+    {
+        using namespace Flyweight;
+        
+        PrimitiveFactory factory;
+        std::shared_ptr<Picture> picture = factory.createPicture();
+        picture->addChild(factory.createPoint());
+        picture->addChild(factory.createCircle(10));
+        picture->addChild(factory.createSquare(5, 22));
+        picture->addChild(factory.createSquare(11, 22));
+        picture->addChild(factory.createSquare(5, 22));
+        picture->addChild(factory.createPoint());
+        
+        Context context(15, 10, 0x445522);
+        picture->draw(context);
     }
     
     return 0;
