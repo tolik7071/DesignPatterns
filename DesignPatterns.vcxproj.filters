@@ -48,6 +48,12 @@
     <ClCompile Include="DesignPatterns\Decorator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DesignPatterns\Facade.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignPatterns\Flyweight.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DesignPatterns\stdafx.h">
@@ -84,6 +90,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DesignPatterns\Decorator.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignPatterns\Facade.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignPatterns\Flyweight.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

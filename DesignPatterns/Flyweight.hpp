@@ -16,7 +16,7 @@
 
 namespace Flyweight
 {
-    class Context;
+    struct Context;
     
     class Primitive
     {
