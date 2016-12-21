@@ -23,6 +23,7 @@
 #include "Decorator.hpp"
 #include "Facade.hpp"
 #include "Flyweight.hpp"
+#include "Proxy.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -242,6 +243,23 @@ int main(int argc, const char * argv[])
         
         Context context(15, 10, 0x445522);
         picture->draw(context);
+    }
+    
+    {
+        using namespace Proxy;
+        
+        Editor editor;
+        
+        editor.addImage(std::shared_ptr<ImageProxy>(new ImageProxy()));
+        editor.addImage(std::shared_ptr<ImageProxy>(new ImageProxy()));
+        
+        std::shared_ptr<ImageProxy> imageProxy(new ImageProxy());
+        editor.addImage(imageProxy);
+        imageProxy->image()->setIsLoaded(true);
+        
+        editor.addImage(std::shared_ptr<ImageProxy>(new ImageProxy()));
+        
+        editor.ProcessImages();
     }
     
     return 0;
