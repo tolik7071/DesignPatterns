@@ -10,6 +10,7 @@
 		5A1900831DE0506C002F5CF7 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A1900811DE0506C002F5CF7 /* Singleton.cpp */; };
 		5A254CDE1E03CAF30003DDDD /* Flyweight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A254CDC1E03CAF30003DDDD /* Flyweight.cpp */; };
 		5A4E97041DDAE227002BE7F4 /* Prototype.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A4E97021DDAE227002BE7F4 /* Prototype.cpp */; };
+		5A60D5401E0CF530003B8B3F /* ChainOfResponsibility.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A60D53E1E0CF530003B8B3F /* ChainOfResponsibility.cpp */; };
 		5A708FF21E0A56EE003D29E4 /* Proxy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A708FF01E0A56EE003D29E4 /* Proxy.cpp */; };
 		5A71EAC31DFE7F140015F85B /* Facade.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A71EAC11DFE7F140015F85B /* Facade.cpp */; };
 		5A7536E41DCDE58C008F1F52 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A7536E31DCDE58C008F1F52 /* main.cpp */; };
@@ -41,6 +42,8 @@
 		5A254CDD1E03CAF30003DDDD /* Flyweight.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Flyweight.hpp; sourceTree = "<group>"; };
 		5A4E97021DDAE227002BE7F4 /* Prototype.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Prototype.cpp; sourceTree = "<group>"; };
 		5A4E97031DDAE227002BE7F4 /* Prototype.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Prototype.hpp; sourceTree = "<group>"; };
+		5A60D53E1E0CF530003B8B3F /* ChainOfResponsibility.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChainOfResponsibility.cpp; sourceTree = "<group>"; };
+		5A60D53F1E0CF530003B8B3F /* ChainOfResponsibility.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ChainOfResponsibility.hpp; sourceTree = "<group>"; };
 		5A708FF01E0A56EE003D29E4 /* Proxy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Proxy.cpp; sourceTree = "<group>"; };
 		5A708FF11E0A56EE003D29E4 /* Proxy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Proxy.hpp; sourceTree = "<group>"; };
 		5A71EAC11DFE7F140015F85B /* Facade.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Facade.cpp; sourceTree = "<group>"; };
@@ -120,6 +123,8 @@
 				5A254CDC1E03CAF30003DDDD /* Flyweight.cpp */,
 				5A708FF11E0A56EE003D29E4 /* Proxy.hpp */,
 				5A708FF01E0A56EE003D29E4 /* Proxy.cpp */,
+				5A60D53F1E0CF530003B8B3F /* ChainOfResponsibility.hpp */,
+				5A60D53E1E0CF530003B8B3F /* ChainOfResponsibility.cpp */,
 			);
 			path = DesignPatterns;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 				5A7536E41DCDE58C008F1F52 /* main.cpp in Sources */,
 				5AD53C881DF934E6002C23BA /* Decorator.cpp in Sources */,
 				5A1900831DE0506C002F5CF7 /* Singleton.cpp in Sources */,
+				5A60D5401E0CF530003B8B3F /* ChainOfResponsibility.cpp in Sources */,
 				5A708FF21E0A56EE003D29E4 /* Proxy.cpp in Sources */,
 				5A4E97041DDAE227002BE7F4 /* Prototype.cpp in Sources */,
 				5A254CDE1E03CAF30003DDDD /* Flyweight.cpp in Sources */,

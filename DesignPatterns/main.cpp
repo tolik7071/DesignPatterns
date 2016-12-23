@@ -24,6 +24,7 @@
 #include "Facade.hpp"
 #include "Flyweight.hpp"
 #include "Proxy.hpp"
+#include "ChainOfResponsibility.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -260,6 +261,15 @@ int main(int argc, const char * argv[])
         editor.addImage(std::shared_ptr<ImageProxy>(new ImageProxy()));
         
         editor.ProcessImages();
+    }
+    
+    {
+        using namespace ChainOfResponsibility;
+        
+        ChainOfResponsibility::Window window;
+        window.createControls();
+        
+        std::cout << window.findHelp() << std::endl;
     }
     
     return 0;
