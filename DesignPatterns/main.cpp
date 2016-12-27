@@ -25,6 +25,7 @@
 #include "Flyweight.hpp"
 #include "Proxy.hpp"
 #include "ChainOfResponsibility.hpp"
+#include "Command.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -270,6 +271,18 @@ int main(int argc, const char * argv[])
         window.createControls();
         
         std::cout << window.findHelp() << std::endl;
+    }
+    
+    {
+        using namespace Command;
+        
+        Application& app = Application::GetSharedInstance();
+        
+        app.createDocWithName("First window");
+        std::shared_ptr<Document> document = app.createDocWithName("Second window");
+        app.createDocWithName("Toolbox");
+        
+        document->print();
     }
     
     return 0;
