@@ -277,12 +277,7 @@ int main(int argc, const char * argv[])
         using namespace Command;
         
         Application& app = Application::GetSharedInstance();
-        
-        app.createDocWithName("First window");
-        std::shared_ptr<Document> document = app.createDocWithName("Second window");
-        app.createDocWithName("Toolbox");
-        
-        document->print();
+        app.exit();
     }
     
     return 0;

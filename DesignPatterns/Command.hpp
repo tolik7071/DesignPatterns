@@ -22,34 +22,45 @@ namespace Command
         public:
         
         virtual void execute() = 0;
-        
-        virtual ~ICommand();
     };
     
-    class PrintCommand : public ICommand
+    class BaseCommand : public ICommand
+    {
+        public:
+        
+        BaseCommand(std::shared_ptr<Document> document);
+        virtual ~BaseCommand();
+        
+        std::shared_ptr<Document> document();
+        
+        private:
+        
+        std::shared_ptr<Document> mDocument;
+    };
+    
+    class CreateCommand : public ICommand
+    {
+        public:
+        
+        virtual void execute();
+    };
+    
+    class PrintCommand : public BaseCommand
     {
         public:
         
         PrintCommand(std::shared_ptr<Document> document);
         
         virtual void execute();
-        
-        private:
-        
-        std::shared_ptr<Document> mDocument;
     };
     
-    class CloseCommand : public ICommand
+    class CloseCommand : public BaseCommand
     {
         public:
         
         CloseCommand(std::shared_ptr<Document> document);
         
         virtual void execute();
-        
-        private:
-        
-        std::shared_ptr<Document> mDocument;
     };
     
     class ExitCommand : public ICommand
@@ -69,27 +80,37 @@ namespace Command
         std::string name() const;
         
         void print();
-        void exit();
+        void close();
         
         private:
         
         std::string mName;
     };
     
+    enum class MenuIDs
+    {
+        kCreateDocument,
+        kPrintDocument,
+        kCloseDocument,
+        kSeparator,
+        kExit
+    };
+    
     class MenuItem
     {
         public:
         
-        MenuItem(std::string title, std::shared_ptr<ICommand> command);
+        MenuItem(std::string title, MenuIDs id);
+        virtual ~MenuItem();
         
         std::string title() const;
         
-        void select();
+        void select() const;
         
         private:
         
         std::string mTitle;
-        std::shared_ptr<ICommand> mCommand;
+        MenuIDs mId;
     };
     
     class Application
@@ -100,7 +121,13 @@ namespace Command
         
         std::shared_ptr<Document> createDocWithName(const std::string& name);
         std::shared_ptr<Document> documentWithName(const std::string& name);
-        std::shared_ptr<Document> currentDoc() const;
+        
+        std::shared_ptr<Document> currentDocument() const;
+        void setCurrentDocument(std::shared_ptr<Document> document);
+        
+        const std::vector<std::shared_ptr<MenuItem> > menu() const;
+        
+        void exit();
         
         private:
         
@@ -115,14 +142,18 @@ namespace Command
          */
         void createMenu();
         
+        void invoke(std::shared_ptr<ICommand> command);
+        
         static void CleanUp();
         static Application *mInstance;
         
         typedef std::vector<std::shared_ptr<Document> > TArrayOfDocs;
         TArrayOfDocs mDocuments;
         
-        typedef std::vector<std::shared_ptr<ICommand> > TArrayOfCommands;
-        TArrayOfCommands mCommands;
+        std::shared_ptr<Document> mCurrentDoc;
+                
+        typedef std::vector<std::shared_ptr<MenuItem> > TArrayOfMenuItems;
+        TArrayOfMenuItems mMenuItems;
     };
 }
 
