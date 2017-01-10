@@ -54,6 +54,15 @@
     <ClCompile Include="DesignPatterns\Flyweight.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DesignPatterns\ChainOfResponsibility.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignPatterns\Command.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DesignPatterns\Proxy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DesignPatterns\stdafx.h">
@@ -96,6 +105,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DesignPatterns\Flyweight.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignPatterns\ChainOfResponsibility.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignPatterns\Command.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignPatterns\Proxy.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
