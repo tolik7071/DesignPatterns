@@ -10,7 +10,7 @@
 #define ChainOfResponsibility_hpp
 
 #include <string>
-#include <memory.h>
+#include <memory>
 #include <vector>
 
 namespace ChainOfResponsibility
