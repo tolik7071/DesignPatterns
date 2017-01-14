@@ -277,7 +277,13 @@ int main(int argc, const char * argv[])
         using namespace Command;
         
         Application& app = Application::GetSharedInstance();
-        app.exit();
+        
+        app.menu()->createDocument();
+        app.menu()->createDocument();
+        app.menu()->createDocument();
+        app.menu()->deleteDocument();
+        app.menu()->createDocument();
+        app.deleteCurrentDocument();
     }
     
     return 0;

@@ -16,54 +16,10 @@
 
 using namespace Command;
 
-BaseCommand::BaseCommand(std::shared_ptr<Document> document)
-{
-    mDocument = document;
-}
-
-BaseCommand::~BaseCommand()
+Document::Document(const std::string& title)
+    : mTitle(title)
 {
     LOG_FUNCTION();
-}
-
-std::shared_ptr<Document> BaseCommand::document()
-{
-    return mDocument;
-}
-
-void CreateCommand::execute()
-{
-    LOG_FUNCTION();
-}
-
-PrintCommand::PrintCommand(std::shared_ptr<Document> document)
-    : BaseCommand(document)
-{
-}
-
-void PrintCommand::execute()
-{
-    LOG_FUNCTION();
-}
-
-CloseCommand::CloseCommand(std::shared_ptr<Document> document)
-    : BaseCommand(document)
-{
-}
-
-void CloseCommand::execute()
-{
-    LOG_FUNCTION();
-}
-
-void ExitCommand::execute()
-{
-    LOG_FUNCTION();
-}
-
-Document::Document(std::string name)
-{
-    mName = name;
 }
 
 Document::~Document()
@@ -71,67 +27,21 @@ Document::~Document()
     LOG_FUNCTION();
 }
 
-std::string Document::name() const
-{
-    return mName;
-}
-
-void Document::print()
-{
-    LOG_FUNCTION();
-}
-
-void Document::close()
-{
-    LOG_FUNCTION();
-}
-
-MenuItem::MenuItem(std::string title, MenuIDs id)
-{
-    mTitle = title;
-    mId = id;
-}
-
-MenuItem::~MenuItem()
-{
-    LOG_FUNCTION();
-}
-
-std::string MenuItem::title() const
+std::string Document::title() const
 {
     return mTitle;
 }
 
-void MenuItem::select() const
+Application::Application()
 {
-    switch (mId)
-    {
-        case MenuIDs::kCreateDocument:
-        {
-//            Application::GetSharedInstance().invoke(std::shared_ptr<ICommand>(new CreateCommand()));
-            break;
-        }
-        
-        case MenuIDs::kPrintDocument:
-        {
-            break;
-        }
-            
-        case MenuIDs::kCloseDocument:
-        {
-            break;
-        }
-        
-        case MenuIDs::kExit:
-        {
-            break;
-        }
-        
-        case MenuIDs::kSeparator:
-        {
-            ; // Avoid compiler warning
-        }
-    }
+    LOG_FUNCTION();
+}
+
+Application::~Application()
+{
+    LOG_FUNCTION();
+    
+    delete mMenu;
 }
 
 Application* Application::mInstance = nullptr;
@@ -141,15 +51,30 @@ Application* Application::mInstance = nullptr;
     if (mInstance == nullptr)
     {
         mInstance = new Application();
-        std::atexit(CleanUp);
+        std::atexit(Cleanup);
     }
     
     return *mInstance;
 }
 
-void Application::createMenu()
+/*static */void Application::Cleanup()
 {
+    LOG_FUNCTION();
+    
+    delete mInstance;
+    mInstance = nullptr;
 }
+
+const Application::Menu * Application::menu()
+{
+    if (mMenu == nullptr)
+    {
+        mMenu = new Menu();
+    }
+    
+    return mMenu;
+}
+
 
 void Application::invoke(std::shared_ptr<ICommand> command)
 {
@@ -159,77 +84,47 @@ void Application::invoke(std::shared_ptr<ICommand> command)
     }
 }
 
-void Application::exit()
+std::shared_ptr<Document> Application::createDocument()
 {
-    CleanUp();
-}
-
-std::shared_ptr<Document> Application::createDocWithName(const std::string& name)
-{
-    std::shared_ptr<Document> result = documentWithName(name);
+    static int count = 0;
     
-    if (result.get() == nullptr)
-    {
-        result.reset(new Document(name));
-        mCurrentDoc = result;
-    }
+    std::string title("New Document #");
+    title += std::to_string(++count);
+    std::shared_ptr<Document> result(new Document(title));
+    
+    mDocuments.push_back(result);
     
     return result;
 }
 
-std::shared_ptr<Document> Application::documentWithName(const std::string& name)
+void Application::deleteCurrentDocument()
 {
-    std::shared_ptr<Document> result;
-    
-    TArrayOfDocs::iterator it = std::find_if(mDocuments.begin(), mDocuments.end(),
-        [&name](std::shared_ptr<Document>& document)
-            {
-                bool result = false;
-
-                if (document->name() == name)
-                {
-                    result = true;
-                }
-
-                return result;
-            }
-    );
-    
-    if (it != mDocuments.end())
+    if (0 < mDocuments.size())
     {
-        result = *it;
-    }
-    
-    return result;
-}
-
-void Application::setCurrentDocument(std::shared_ptr<Document> document)
-{
-    if (mCurrentDoc.get() != document.get())
-    {
-        mCurrentDoc = document;
-        
-        if (documentWithName(document->name()).get() == nullptr)
-        {
-            mDocuments.push_back(document);
-        }
+        std::shared_ptr<Document> currentDocument = mDocuments.back();
+        mDocuments.pop_back();
+        currentDocument.reset();
     }
 }
 
-std::shared_ptr<Document> Application::currentDocument() const
+void Application::Menu::createDocument() const
 {
-    return mCurrentDoc;
+    std::shared_ptr<ICommand> command(new CreateDocumentCommand());
+    Application::GetSharedInstance().invoke(command);
 }
 
-/*static */void Application::CleanUp()
+void Application::Menu::deleteDocument() const
 {
-    LOG_FUNCTION();
-    
-    delete mInstance;
-    mInstance = NULL;
+    std::shared_ptr<ICommand> command(new DeleteDocumentCommand());
+    Application::GetSharedInstance().invoke(command);
 }
 
-const std::vector<std::shared_ptr<MenuItem> > Application::menu() const
+void CreateDocumentCommand::execute()
 {
-    return mMenuItems;
+    Application::GetSharedInstance().createDocument();
+}
+
+void DeleteDocumentCommand::execute()
+{
+    Application::GetSharedInstance().deleteCurrentDocument();
 }
