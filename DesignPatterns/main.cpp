@@ -26,6 +26,7 @@
 #include "Proxy.hpp"
 #include "ChainOfResponsibility.hpp"
 #include "Command.hpp"
+#include "Interpreter.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -284,6 +285,20 @@ int main(int argc, const char * argv[])
         app.menu()->deleteDocument();
         app.menu()->createDocument();
         app.deleteCurrentDocument();
+    }
+    
+    {
+        using namespace Interpreter;
+        
+        std::shared_ptr<Expression> red(new TerminalExpression("red"));
+        std::shared_ptr<Expression> green(new TerminalExpression("green"));
+        
+        std::shared_ptr<Expression> redOrGreen(new OrExpression(red, green));
+        std::cout << std::boolalpha << redOrGreen->interpret("red") << std::endl;
+        std::cout << std::boolalpha << redOrGreen->interpret("blue") << std::endl;
+        
+        std::shared_ptr<Expression> redAndGreen(new AndExpression(red, green));
+        std::cout << std::boolalpha << redOrGreen->interpret("red green blue") << std::endl;
     }
     
     return 0;
