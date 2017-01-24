@@ -30,6 +30,7 @@
     <ClCompile Include="DesignPatterns\Decorator.cpp" />
     <ClCompile Include="DesignPatterns\Facade.cpp" />
     <ClCompile Include="DesignPatterns\Flyweight.cpp" />
+    <ClCompile Include="DesignPatterns\Interpreter.cpp" />
     <ClCompile Include="DesignPatterns\main.cpp" />
     <ClCompile Include="DesignPatterns\Prototype.cpp" />
     <ClCompile Include="DesignPatterns\Proxy.cpp" />
@@ -49,6 +50,7 @@
     <ClInclude Include="DesignPatterns\Decorator.hpp" />
     <ClInclude Include="DesignPatterns\Facade.hpp" />
     <ClInclude Include="DesignPatterns\Flyweight.hpp" />
+    <ClInclude Include="DesignPatterns\Interpreter.hpp" />
     <ClInclude Include="DesignPatterns\Prototype.hpp" />
     <ClInclude Include="DesignPatterns\Proxy.hpp" />
     <ClInclude Include="DesignPatterns\Singleton.hpp" />

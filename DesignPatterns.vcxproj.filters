@@ -63,6 +63,9 @@
     <ClCompile Include="DesignPatterns\Proxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DesignPatterns\Interpreter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DesignPatterns\stdafx.h">
@@ -114,6 +117,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="DesignPatterns\Proxy.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DesignPatterns\Interpreter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
