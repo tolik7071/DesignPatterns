@@ -12,6 +12,8 @@
 #endif // _MSC_VER
 #include <iostream>
 #include <memory>
+#include <string>
+#include <math.h>
 #include "AbstractFactory.hpp"
 #include "Builder.hpp"
 #include "AbstractMethod.hpp"
@@ -27,6 +29,7 @@
 #include "ChainOfResponsibility.hpp"
 #include "Command.hpp"
 #include "Interpreter.hpp"
+#include "Iterator.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -299,6 +302,60 @@ int main(int argc, const char * argv[])
         
         std::shared_ptr<Expression> redAndGreen(new AndExpression(red, green));
         std::cout << std::boolalpha << redOrGreen->interpret("red green blue") << std::endl;
+    }
+    
+    {
+        using namespace Iterator;
+        
+        typedef SimpleArray<int, 5> TIntArray;
+        TIntArray data = { 66, 15, -1, 0, -5 };
+        
+        std::cout << data.first() << std::endl;
+        std::cout << data.last() << std::endl;
+        
+        for (int i = 0; i < data.size(); ++i)
+        {
+            std::cout << data.at(i) << std::endl;
+        }
+        
+        try
+        {
+            std::cout << data.at(100) << std::endl;
+        }
+        catch (std::exception& e)
+        {
+            std::cout << e.what() << std::endl;
+        }
+        
+        std::sort(data.begin(), data.end());
+        
+        std::for_each(data.begin(), data.end(),
+            [](typename TIntArray::value_type element)
+            {
+                std::cout << element << std::endl;
+            }
+        );
+        
+        SimpleArray<int, 0> empty = {};
+        std::cout << empty.first() << std::endl;
+        std::cout << empty.last() << std::endl;
+        std::cout << std::boolalpha << empty.empty() << std::endl;
+        
+        SimpleArray<std::string, 3> strings = { "1", "2", "3" };
+        
+        std::for_each(strings.begin(), strings.end(),
+            [](typename SimpleArray<std::string, 3>::value_type element)
+            {
+                std::cout << element << std::endl;
+            }
+        );
+        
+        StringArrayAdapter<3> strings2 = { "10", "20", "30" };
+        const std::string* str = nullptr;
+        while (nullptr != (str = strings2.next()))
+        {
+            std::cout << *str << std::endl;
+        }
     }
     
     return 0;
