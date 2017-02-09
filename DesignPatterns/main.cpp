@@ -14,6 +14,7 @@
 #include <memory>
 #include <string>
 #include <math.h>
+#include <assert.h>
 #include "AbstractFactory.hpp"
 #include "Builder.hpp"
 #include "AbstractMethod.hpp"
@@ -30,6 +31,7 @@
 #include "Command.hpp"
 #include "Interpreter.hpp"
 #include "Iterator.hpp"
+#include "Mediator.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -356,6 +358,16 @@ int main(int argc, const char * argv[])
         {
             std::cout << *str << std::endl;
         }
+    }
+    
+    {
+        using namespace Mediator;
+        
+        DialogDirector& director = DialogDirector::GetSharedDirector();
+        director.createWidgets();
+        
+        director.listBox()->setColor(Mediator::ListBox::kGreen);
+        assert(director.colorBox()->fillColor() == Mediator::ListBox::kGreen);
     }
     
     return 0;
