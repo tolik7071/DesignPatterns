@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F6C02AE1E56D6C9004DE576 /* Memento.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C02AC1E56D6C9004DE576 /* Memento.cpp */; };
 		5A1900831DE0506C002F5CF7 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A1900811DE0506C002F5CF7 /* Singleton.cpp */; };
 		5A254CDE1E03CAF30003DDDD /* Flyweight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A254CDC1E03CAF30003DDDD /* Flyweight.cpp */; };
 		5A4E97041DDAE227002BE7F4 /* Prototype.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A4E97021DDAE227002BE7F4 /* Prototype.cpp */; };
@@ -40,6 +41,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F6C02AC1E56D6C9004DE576 /* Memento.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Memento.cpp; sourceTree = "<group>"; };
+		1F6C02AD1E56D6C9004DE576 /* Memento.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Memento.hpp; sourceTree = "<group>"; };
 		5A1900811DE0506C002F5CF7 /* Singleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Singleton.cpp; sourceTree = "<group>"; };
 		5A1900821DE0506C002F5CF7 /* Singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Singleton.hpp; sourceTree = "<group>"; };
 		5A254CDC1E03CAF30003DDDD /* Flyweight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Flyweight.cpp; sourceTree = "<group>"; };
@@ -145,6 +148,8 @@
 				5ADE93061E3C9ABA007FA86B /* Iterator.cpp */,
 				5ABDF8E31E49A57D00AA95C1 /* Mediator.hpp */,
 				5ABDF8E21E49A57D00AA95C1 /* Mediator.cpp */,
+				1F6C02AD1E56D6C9004DE576 /* Memento.hpp */,
+				1F6C02AC1E56D6C9004DE576 /* Memento.cpp */,
 			);
 			path = DesignPatterns;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F6C02AE1E56D6C9004DE576 /* Memento.cpp in Sources */,
 				5A8B0CAF1DE9C04D00AA080A /* Bridge.cpp in Sources */,
 				5ADF9BDB1DD726AA00191A54 /* AbstractMethod.cpp in Sources */,
 				5A7536EC1DCDE5C9008F1F52 /* AbstractFactory.cpp in Sources */,

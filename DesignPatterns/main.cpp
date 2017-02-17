@@ -32,6 +32,7 @@
 #include "Interpreter.hpp"
 #include "Iterator.hpp"
 #include "Mediator.hpp"
+#include "Memento.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -368,6 +369,10 @@ int main(int argc, const char * argv[])
         
         director.listBox()->setColor(Mediator::ListBox::kGreen);
         assert(director.colorBox()->fillColor() == Mediator::ListBox::kGreen);
+    }
+    
+    {
+        using namespace Memento;
     }
     
     return 0;
