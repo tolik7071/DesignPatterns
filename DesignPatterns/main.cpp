@@ -373,6 +373,18 @@ int main(int argc, const char * argv[])
     
     {
         using namespace Memento;
+        
+        TextEditor editor;
+        editor.setText("Test string");
+        assert(editor.text() == "Test string");
+        
+        std::shared_ptr<TextEditor::RestorePoint> restorePoint = editor.createRestorePoint();
+        
+        editor.setText("Test string 2");
+        assert(editor.text() == "Test string 2");
+        
+        editor.applyRestorePoint(restorePoint);
+        assert(editor.text() == "Test string");
     }
     
     return 0;
