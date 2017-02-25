@@ -15,6 +15,8 @@
 #include <string>
 #include <math.h>
 #include <assert.h>
+#include <thread>
+#include <ctime>
 #include "AbstractFactory.hpp"
 #include "Builder.hpp"
 #include "AbstractMethod.hpp"
@@ -385,6 +387,30 @@ int main(int argc, const char * argv[])
         
         editor.applyRestorePoint(restorePoint);
         assert(editor.text() == "Test string");
+    }
+    
+    {
+        typedef std::chrono::high_resolution_clock TClock;
+        
+        TClock::time_point start = TClock::now();
+        
+        for (int i = 0; i < 5; i++)
+        {
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+        }
+        
+        TClock::time_point end = TClock::now();
+        
+        TClock::duration elapsed = end - start;
+        std::cout << "Elapsed " << elapsed.count() << " nanoseconds" << std::endl;
+        std::cout << "Elapsed " << std::chrono::duration_cast<std::chrono::seconds>(elapsed).count() << " seconds" << std::endl;
+        
+        /* ********** */
+        
+        typedef std::chrono::system_clock TSystemClock;
+        
+        std::time_t now = TSystemClock::to_time_t(TSystemClock::now());
+        std::cout << std::asctime(std::localtime(&now)) << std::endl;
     }
     
     return 0;
