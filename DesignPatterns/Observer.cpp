@@ -10,6 +10,7 @@
 #include "stdafx.h"
 #endif // _MSC_VER
 #include "Observer.hpp"
+#include <algorithm>
 
 using namespace Observer;
 

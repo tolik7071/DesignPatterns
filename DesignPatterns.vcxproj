@@ -32,6 +32,9 @@
     <ClCompile Include="DesignPatterns\Flyweight.cpp" />
     <ClCompile Include="DesignPatterns\Interpreter.cpp" />
     <ClCompile Include="DesignPatterns\main.cpp" />
+    <ClCompile Include="DesignPatterns\Mediator.cpp" />
+    <ClCompile Include="DesignPatterns\Memento.cpp" />
+    <ClCompile Include="DesignPatterns\Observer.cpp" />
     <ClCompile Include="DesignPatterns\Prototype.cpp" />
     <ClCompile Include="DesignPatterns\Proxy.cpp" />
     <ClCompile Include="DesignPatterns\Singleton.cpp" />
@@ -51,6 +54,9 @@
     <ClInclude Include="DesignPatterns\Facade.hpp" />
     <ClInclude Include="DesignPatterns\Flyweight.hpp" />
     <ClInclude Include="DesignPatterns\Interpreter.hpp" />
+    <ClInclude Include="DesignPatterns\Mediator.hpp" />
+    <ClInclude Include="DesignPatterns\Memento.hpp" />
+    <ClInclude Include="DesignPatterns\Observer.hpp" />
     <ClInclude Include="DesignPatterns\Prototype.hpp" />
     <ClInclude Include="DesignPatterns\Proxy.hpp" />
     <ClInclude Include="DesignPatterns\Singleton.hpp" />

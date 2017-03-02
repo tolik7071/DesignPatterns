@@ -17,6 +17,7 @@
 #include <assert.h>
 #include <thread>
 #include <ctime>
+#include <algorithm>
 #include "AbstractFactory.hpp"
 #include "Builder.hpp"
 #include "AbstractMethod.hpp"
@@ -321,7 +322,7 @@ int main(int argc, const char * argv[])
         std::cout << data.first() << std::endl;
         std::cout << data.last() << std::endl;
         
-        for (int i = 0; i < data.size(); ++i)
+        for (size_t i = 0; i < data.size(); ++i)
         {
             std::cout << data.at(i) << std::endl;
         }
@@ -415,7 +416,7 @@ int main(int argc, const char * argv[])
         typedef std::chrono::system_clock TSystemClock;
         
         std::time_t now = TSystemClock::to_time_t(TSystemClock::now());
-        std::cout << std::asctime(std::localtime(&now)) << std::endl;
+//        std::cout << asctime(std::localtime(&now)) << std::endl;
     }
     
     {

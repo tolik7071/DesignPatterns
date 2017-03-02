@@ -77,10 +77,11 @@ namespace Iterator
         {
             size_t index = 0;
             
-            for (auto p : std::initializer_list<std::string>{args...})
+			std::initializer_list<std::string> arguments = { args... };
+			std::initializer_list<std::string>::iterator it = arguments.begin();
+			for (; it != arguments.end(); ++it)
             {
-                const std::string& str = *(&p);
-                this->operator[] (index++) = str;
+                this->operator[] (index++) = *it;
             }
         }
         
