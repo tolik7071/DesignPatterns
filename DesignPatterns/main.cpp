@@ -502,6 +502,9 @@ int main(int argc, const char * argv[])
         editor.addObserver(std::shared_ptr<IChangesObserver>(), "text");
         
         editor.setText("00000");
+        
+        editor.removeObserver(observer3, "text");
+        editor.removeObserver(std::shared_ptr<IChangesObserver>(), "text");
     }
     
     return 0;

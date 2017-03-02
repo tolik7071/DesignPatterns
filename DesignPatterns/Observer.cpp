@@ -24,7 +24,7 @@ void Observer::TextEditor::setText(const std::string& text)
     
     TObservers observers = findObservers("text");
     std::for_each(observers.begin(), observers.end(),
-                  [](TObservers::reference observer)
+        [](TObservers::reference observer)
         {
             observer->didChanged("text");
         }
@@ -46,12 +46,21 @@ void Observer::IPropertyChangeObserving::removeObserver(
     const std::string& property)
 {
     TObserversMap::mapped_type& observers = mObservers[property];
-    if (observers.size() != 0)
+    TObserversMap::mapped_type::iterator it = std::find(observers.begin(), observers.end(), observer);
+    if (it != observers.end())
     {
-        TObserversMap::mapped_type::iterator it = std::find(observers.begin(), observers.end(), observer);
-        if (it != observers.end())
+        observers.erase(it);
+    }
+    
+    if (observers.size() == 0)
+    {
+        for (TObserversMap::iterator it = mObservers.begin(); it != mObservers.end(); ++it)
         {
-            observers.erase(it);
+            if (it->first == property)
+            {
+                mObservers.erase(it);
+                break;
+            }
         }
     }
 }
@@ -59,6 +68,6 @@ void Observer::IPropertyChangeObserving::removeObserver(
 Observer::IPropertyChangeObserving::TObservers
     Observer::IPropertyChangeObserving::findObservers(const std::string& property)
 {
-    TObservers observer = mObservers[property];
-    return observer;
+    TObservers observers = mObservers[property];
+    return observers;
 }
