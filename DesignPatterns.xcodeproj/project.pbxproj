@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1F6C02AE1E56D6C9004DE576 /* Memento.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C02AC1E56D6C9004DE576 /* Memento.cpp */; };
+		1F71BC831E61A8BC001FC1C8 /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F71BC811E61A8BC001FC1C8 /* Observer.cpp */; };
 		5A1900831DE0506C002F5CF7 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A1900811DE0506C002F5CF7 /* Singleton.cpp */; };
 		5A254CDE1E03CAF30003DDDD /* Flyweight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A254CDC1E03CAF30003DDDD /* Flyweight.cpp */; };
 		5A4E97041DDAE227002BE7F4 /* Prototype.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A4E97021DDAE227002BE7F4 /* Prototype.cpp */; };
@@ -43,6 +44,8 @@
 /* Begin PBXFileReference section */
 		1F6C02AC1E56D6C9004DE576 /* Memento.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Memento.cpp; sourceTree = "<group>"; };
 		1F6C02AD1E56D6C9004DE576 /* Memento.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Memento.hpp; sourceTree = "<group>"; };
+		1F71BC811E61A8BC001FC1C8 /* Observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Observer.cpp; sourceTree = "<group>"; };
+		1F71BC821E61A8BC001FC1C8 /* Observer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Observer.hpp; sourceTree = "<group>"; };
 		5A1900811DE0506C002F5CF7 /* Singleton.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Singleton.cpp; sourceTree = "<group>"; };
 		5A1900821DE0506C002F5CF7 /* Singleton.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Singleton.hpp; sourceTree = "<group>"; };
 		5A254CDC1E03CAF30003DDDD /* Flyweight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Flyweight.cpp; sourceTree = "<group>"; };
@@ -150,6 +153,8 @@
 				5ABDF8E21E49A57D00AA95C1 /* Mediator.cpp */,
 				1F6C02AD1E56D6C9004DE576 /* Memento.hpp */,
 				1F6C02AC1E56D6C9004DE576 /* Memento.cpp */,
+				1F71BC821E61A8BC001FC1C8 /* Observer.hpp */,
+				1F71BC811E61A8BC001FC1C8 /* Observer.cpp */,
 			);
 			path = DesignPatterns;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 				5A708FF21E0A56EE003D29E4 /* Proxy.cpp in Sources */,
 				5A4E97041DDAE227002BE7F4 /* Prototype.cpp in Sources */,
 				5A254CDE1E03CAF30003DDDD /* Flyweight.cpp in Sources */,
+				1F71BC831E61A8BC001FC1C8 /* Observer.cpp in Sources */,
 				5AF5350F1DF69A06008C3443 /* Composite.cpp in Sources */,
 				5ADF9BD71DD2F85400191A54 /* Builder.cpp in Sources */,
 			);

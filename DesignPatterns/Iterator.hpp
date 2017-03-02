@@ -73,11 +73,11 @@ namespace Iterator
         public:
         
         template<typename... T>
-        StringArrayAdapter(const T&... args)
+        StringArrayAdapter(const T... args)
         {
             size_t index = 0;
             
-            for (auto&& p : std::initializer_list<std::string>{args...})
+            for (auto p : std::initializer_list<std::string>{args...})
             {
                 const std::string& str = *(&p);
                 this->operator[] (index++) = str;

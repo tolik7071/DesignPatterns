@@ -35,6 +35,7 @@
 #include "Iterator.hpp"
 #include "Mediator.hpp"
 #include "Memento.hpp"
+#include "Observer.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -82,6 +83,8 @@ int main(int argc, const char * argv[])
     }
     
     {
+        // TODO
+        
         class A
         {
             public:
@@ -390,6 +393,8 @@ int main(int argc, const char * argv[])
     }
     
     {
+        // TODO
+        
         typedef std::chrono::high_resolution_clock TClock;
         
         TClock::time_point start = TClock::now();
@@ -411,6 +416,92 @@ int main(int argc, const char * argv[])
         
         std::time_t now = TSystemClock::to_time_t(TSystemClock::now());
         std::cout << std::asctime(std::localtime(&now)) << std::endl;
+    }
+    
+    {
+        // TODO
+        
+        typedef std::map<std::string, std::vector<int> > TDataMap;
+        TDataMap data;
+        
+        TDataMap::mapped_type& values = data["1"];
+        if (values.size() == 0)
+        {
+            data["1"] = {1, -5, 0, 7};
+        }
+        
+        for (const auto& pair : data)
+        {
+            std::cout << pair.first << ":" << std::endl;
+            for (const auto& value : pair.second)
+            {
+                std::cout << "\t" << value << std::endl;
+            }
+        }
+    }
+    
+    {
+        // TODO
+        
+        struct SomeData
+        {
+            int mData = 0;
+            
+            static void Foo() { LOG_FUNCTION(); }
+            
+            int data() const { return mData; }
+            void setData(int value) { mData = value; }
+        };
+        
+        std::function<void()> callFoo = &SomeData::Foo;
+        callFoo();
+        
+        SomeData data;
+        
+        std::function<int(const SomeData&)> getter = &SomeData::data;
+        int result = getter(data);
+        assert(result == 0);
+        
+        std::function<void(SomeData&, int)> setter = &SomeData::setData;
+        setter(data, 11);
+        result = getter(data);
+        assert(result == 11);
+    }
+    
+    {
+        using namespace Observer;
+        
+        class Observer : public IChangesObserver
+        {
+            public:
+            
+            virtual void didChanged(const std::string& property)
+            {
+                std::cout << (void *)(this) << ": Property \'" << property << "\' " << "has been changed" << std::endl;
+            }
+        };
+        
+        std::shared_ptr<IChangesObserver> observer1(new Observer());
+        std::shared_ptr<IChangesObserver> observer2(new Observer());
+        std::shared_ptr<IChangesObserver> observer3(new Observer());
+        
+        TextEditor editor;
+        editor.setText("This is a simple string.");
+        
+        editor.addObserver(observer1, "text");
+        editor.addObserver(observer2, "text");
+        
+        editor.setText("");
+        
+        editor.removeObserver(observer1, "text");
+        editor.removeObserver(observer2, "text");
+        
+        editor.setText("12345");
+        
+        editor.addObserver(observer3, "text");
+        editor.addObserver(std::shared_ptr<IChangesObserver>(), "text");
+        
+        editor.setText("00000");
     }
     
     return 0;
