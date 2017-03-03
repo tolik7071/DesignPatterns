@@ -16,7 +16,6 @@
 #include <math.h>
 #include <assert.h>
 #include <thread>
-#include <ctime>
 #include <algorithm>
 #include "AbstractFactory.hpp"
 #include "Builder.hpp"
@@ -82,68 +81,7 @@ int main(int argc, const char * argv[])
         document = app.GetDocument(1);
         document->Open();
     }
-    
-    {
-        // TODO
-        
-        class A
-        {
-            public:
-            
-            A() { std::cout << __FUNCTION__ << ": " << (const void *)this << std::endl; }
-            ~A() { std::cout << __FUNCTION__ << ": " << (const void *)this << std::endl; }
-        };
-     
-        /* ********************************************* */
-        
-        A *a = new A();
-        
-        std::shared_ptr<A> shared1(a);
-        std::shared_ptr<A> shared2 = shared1;
-        
-        std::cout << "USE COUNT: " << shared2.use_count() << std::endl;
-        
-        /* ********************************************* */
-        
-        a = new A();
-        
-        std::unique_ptr<A> unique(a);
-        
-        std::unique_ptr<A> unique1 = std::move(unique);
-        std::cout << "UNIQUE: " <<  unique.get() <<std::endl;
-        std::cout << "UNIQUE1: " <<  unique1.get() <<std::endl;
-        
-        unique = std::move(unique1);
-        std::cout << "UNIQUE: " <<  unique.get() <<std::endl;
-        std::cout << "UNIQUE1: " <<  unique1.get() <<std::endl;
-        
-        /* ********************************************* */
-        
-        std::shared_ptr<A> shared3 = std::make_shared<A>();
-        shared3.reset(new A());
-        std::shared_ptr<A> shared4 = shared3;
-        
-        std::weak_ptr<A> weak(shared3);
-        std::cout << "USE COUNT: " << shared3.use_count() << std::endl;
-        
-        if (std::shared_ptr<A> shared = weak.lock())
-        {
-            std::cout << "USE COUNT: " << shared3.use_count() << std::endl;
-        }
-        
-        shared4.reset();
-        shared3.reset();
-        
-        if (std::shared_ptr<A> shared = weak.lock())
-        {
-            std::cout << "USE COUNT: " << shared3.use_count() << std::endl;
-        }
-        else
-        {
-            std::cout << "Cannot lock pointer!" << std::endl;
-        }
-    }
-    
+       
     {
         using namespace Prototype;
         
@@ -391,82 +329,6 @@ int main(int argc, const char * argv[])
         
         editor.applyRestorePoint(restorePoint);
         assert(editor.text() == "Test string");
-    }
-    
-    {
-        // TODO
-        
-        typedef std::chrono::high_resolution_clock TClock;
-        
-        TClock::time_point start = TClock::now();
-        
-        for (int i = 0; i < 5; i++)
-        {
-            std::this_thread::sleep_for(std::chrono::seconds(1));
-        }
-        
-        TClock::time_point end = TClock::now();
-        
-        TClock::duration elapsed = end - start;
-        std::cout << "Elapsed " << elapsed.count() << " nanoseconds" << std::endl;
-        std::cout << "Elapsed " << std::chrono::duration_cast<std::chrono::seconds>(elapsed).count() << " seconds" << std::endl;
-        
-        /* ********** */
-        
-        typedef std::chrono::system_clock TSystemClock;
-        
-        std::time_t now = TSystemClock::to_time_t(TSystemClock::now());
-//        std::cout << asctime(std::localtime(&now)) << std::endl;
-    }
-    
-    {
-        // TODO
-        
-        typedef std::map<std::string, std::vector<int> > TDataMap;
-        TDataMap data;
-        
-        TDataMap::mapped_type& values = data["1"];
-        if (values.size() == 0)
-        {
-            data["1"] = {1, -5, 0, 7};
-        }
-        
-        for (const auto& pair : data)
-        {
-            std::cout << pair.first << ":" << std::endl;
-            for (const auto& value : pair.second)
-            {
-                std::cout << "\t" << value << std::endl;
-            }
-        }
-    }
-    
-    {
-        // TODO
-        
-        struct SomeData
-        {
-            int mData = 0;
-            
-            static void Foo() { LOG_FUNCTION(); }
-            
-            int data() const { return mData; }
-            void setData(int value) { mData = value; }
-        };
-        
-        std::function<void()> callFoo = &SomeData::Foo;
-        callFoo();
-        
-        SomeData data;
-        
-        std::function<int(const SomeData&)> getter = &SomeData::data;
-        int result = getter(data);
-        assert(result == 0);
-        
-        std::function<void(SomeData&, int)> setter = &SomeData::setData;
-        setter(data, 11);
-        result = getter(data);
-        assert(result == 11);
     }
     
     {
