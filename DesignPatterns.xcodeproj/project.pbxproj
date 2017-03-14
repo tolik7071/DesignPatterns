@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F39DB041E7677E9008DC19C /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F39DB021E7677E9008DC19C /* State.cpp */; };
 		1F6C02AE1E56D6C9004DE576 /* Memento.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C02AC1E56D6C9004DE576 /* Memento.cpp */; };
 		1F71BC831E61A8BC001FC1C8 /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F71BC811E61A8BC001FC1C8 /* Observer.cpp */; };
 		5A1900831DE0506C002F5CF7 /* Singleton.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5A1900811DE0506C002F5CF7 /* Singleton.cpp */; };
@@ -42,6 +43,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F39DB021E7677E9008DC19C /* State.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State.cpp; sourceTree = "<group>"; };
+		1F39DB031E7677E9008DC19C /* State.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = State.hpp; sourceTree = "<group>"; };
 		1F6C02AC1E56D6C9004DE576 /* Memento.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Memento.cpp; sourceTree = "<group>"; };
 		1F6C02AD1E56D6C9004DE576 /* Memento.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Memento.hpp; sourceTree = "<group>"; };
 		1F71BC811E61A8BC001FC1C8 /* Observer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Observer.cpp; sourceTree = "<group>"; };
@@ -155,6 +158,8 @@
 				1F6C02AC1E56D6C9004DE576 /* Memento.cpp */,
 				1F71BC821E61A8BC001FC1C8 /* Observer.hpp */,
 				1F71BC811E61A8BC001FC1C8 /* Observer.cpp */,
+				1F39DB031E7677E9008DC19C /* State.hpp */,
+				1F39DB021E7677E9008DC19C /* State.cpp */,
 			);
 			path = DesignPatterns;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 				5A71EAC31DFE7F140015F85B /* Facade.cpp in Sources */,
 				5A7536E41DCDE58C008F1F52 /* main.cpp in Sources */,
 				5AD53C881DF934E6002C23BA /* Decorator.cpp in Sources */,
+				1F39DB041E7677E9008DC19C /* State.cpp in Sources */,
 				5ADE93081E3C9ABA007FA86B /* Iterator.cpp in Sources */,
 				5A1900831DE0506C002F5CF7 /* Singleton.cpp in Sources */,
 				5A60D5401E0CF530003B8B3F /* ChainOfResponsibility.cpp in Sources */,

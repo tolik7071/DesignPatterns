@@ -36,6 +36,7 @@
 #include "Mediator.hpp"
 #include "Memento.hpp"
 #include "Observer.hpp"
+#include "State.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -368,6 +369,23 @@ int main(int argc, const char * argv[])
         
         editor.removeObserver(observer3, "text");
         editor.removeObserver(std::shared_ptr<IChangesObserver>(), "text");
+    }
+    
+    {
+        using namespace State;
+        
+        SomeObject obj;
+        
+        obj.execute();
+        
+        obj.setState(State::SomeObject::StateID::kState2);
+        obj.execute();
+        
+        obj.setState(State::SomeObject::StateID::kState1);
+        obj.execute();
+        
+        obj.setState(State::SomeObject::StateID::kState2);
+        obj.execute();
     }
     
     return 0;
