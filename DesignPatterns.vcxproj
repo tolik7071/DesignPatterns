@@ -38,7 +38,9 @@
     <ClCompile Include="DesignPatterns\Prototype.cpp" />
     <ClCompile Include="DesignPatterns\Proxy.cpp" />
     <ClCompile Include="DesignPatterns\Singleton.cpp" />
+    <ClCompile Include="DesignPatterns\State.cpp" />
     <ClCompile Include="DesignPatterns\stdafx.cpp" />
+    <ClCompile Include="DesignPatterns\Strategy.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DesignPatterns\AbstractFactory.hpp" />
@@ -60,7 +62,9 @@
     <ClInclude Include="DesignPatterns\Prototype.hpp" />
     <ClInclude Include="DesignPatterns\Proxy.hpp" />
     <ClInclude Include="DesignPatterns\Singleton.hpp" />
+    <ClInclude Include="DesignPatterns\State.hpp" />
     <ClInclude Include="DesignPatterns\stdafx.h" />
+    <ClInclude Include="DesignPatterns\Strategy.hpp" />
     <ClInclude Include="DesignPatterns\targetver.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -146,6 +150,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ShowIncludes>true</ShowIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

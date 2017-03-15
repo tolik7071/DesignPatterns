@@ -37,6 +37,7 @@
 #include "Memento.hpp"
 #include "Observer.hpp"
 #include "State.hpp"
+#include "Strategy.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -387,6 +388,24 @@ int main(int argc, const char * argv[])
         obj.setState(State::SomeObject::StateID::kState2);
         obj.execute();
     }
+
+	{
+		using namespace Strategy;
+
+		typedef Data<int> TIntData;
+		TIntData data(11, 44);
+
+		TIntData::Result result = data.calculate();
+		assert(result == 0);
+
+		data.operation = std::make_shared<OperationPlus<TIntData::Result> >(OperationPlus<TIntData::Result>());
+		result = data.calculate();
+		assert(result == 55);
+
+		data.operation = std::make_shared<OperationMinus<TIntData::Result> >(OperationMinus<TIntData::Result>());
+		result = data.calculate();
+		assert(result == -33);
+	}
     
     return 0;
 }
