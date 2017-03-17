@@ -3,7 +3,7 @@
 //  DesignPatterns
 //
 //  Created by tolik7071 on 3/13/17.
-//  Copyright © 2017 Anatoliy Goodz. All rights reserved.
+//  Copyright ï¿½ 2017 Anatoliy Goodz. All rights reserved.
 //
 
 #pragma once
@@ -51,7 +51,7 @@ namespace Strategy
 			this->second = second;
 		}
 
-		typedef typename T Result;
+		typedef /*typename*/ T Result;
 
 		std::shared_ptr<BinaryOperation<T> > operation;
 

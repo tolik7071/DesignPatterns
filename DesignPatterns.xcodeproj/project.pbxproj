@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F35D5D11E7A60C3008D9FC4 /* Strategy.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F35D5CF1E7A60C3008D9FC4 /* Strategy.cpp */; };
+		1F35D5D41E7A64F3008D9FC4 /* TemplateMethod.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F35D5D21E7A64F3008D9FC4 /* TemplateMethod.cpp */; };
 		1F39DB041E7677E9008DC19C /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F39DB021E7677E9008DC19C /* State.cpp */; };
 		1F6C02AE1E56D6C9004DE576 /* Memento.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F6C02AC1E56D6C9004DE576 /* Memento.cpp */; };
 		1F71BC831E61A8BC001FC1C8 /* Observer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1F71BC811E61A8BC001FC1C8 /* Observer.cpp */; };
@@ -43,6 +45,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1F35D5CF1E7A60C3008D9FC4 /* Strategy.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Strategy.cpp; sourceTree = "<group>"; };
+		1F35D5D01E7A60C3008D9FC4 /* Strategy.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Strategy.hpp; sourceTree = "<group>"; };
+		1F35D5D21E7A64F3008D9FC4 /* TemplateMethod.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TemplateMethod.cpp; sourceTree = "<group>"; };
+		1F35D5D31E7A64F3008D9FC4 /* TemplateMethod.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = TemplateMethod.hpp; sourceTree = "<group>"; };
 		1F39DB021E7677E9008DC19C /* State.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = State.cpp; sourceTree = "<group>"; };
 		1F39DB031E7677E9008DC19C /* State.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = State.hpp; sourceTree = "<group>"; };
 		1F6C02AC1E56D6C9004DE576 /* Memento.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Memento.cpp; sourceTree = "<group>"; };
@@ -160,6 +166,10 @@
 				1F71BC811E61A8BC001FC1C8 /* Observer.cpp */,
 				1F39DB031E7677E9008DC19C /* State.hpp */,
 				1F39DB021E7677E9008DC19C /* State.cpp */,
+				1F35D5D01E7A60C3008D9FC4 /* Strategy.hpp */,
+				1F35D5CF1E7A60C3008D9FC4 /* Strategy.cpp */,
+				1F35D5D31E7A64F3008D9FC4 /* TemplateMethod.hpp */,
+				1F35D5D21E7A64F3008D9FC4 /* TemplateMethod.cpp */,
 			);
 			path = DesignPatterns;
 			sourceTree = "<group>";
@@ -230,6 +240,8 @@
 				5ABDF8E41E49A57D00AA95C1 /* Mediator.cpp in Sources */,
 				5A71EAC31DFE7F140015F85B /* Facade.cpp in Sources */,
 				5A7536E41DCDE58C008F1F52 /* main.cpp in Sources */,
+				1F35D5D11E7A60C3008D9FC4 /* Strategy.cpp in Sources */,
+				1F35D5D41E7A64F3008D9FC4 /* TemplateMethod.cpp in Sources */,
 				5AD53C881DF934E6002C23BA /* Decorator.cpp in Sources */,
 				1F39DB041E7677E9008DC19C /* State.cpp in Sources */,
 				5ADE93081E3C9ABA007FA86B /* Iterator.cpp in Sources */,
