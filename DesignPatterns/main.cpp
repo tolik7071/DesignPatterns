@@ -38,6 +38,7 @@
 #include "Observer.hpp"
 #include "State.hpp"
 #include "Strategy.hpp"
+#include "TemplateMethod.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -405,6 +406,10 @@ int main(int argc, const char * argv[])
 		data.operation = std::make_shared<OperationMinus<TIntData::Result> >(OperationMinus<TIntData::Result>());
 		result = data.calculate();
 		assert(result == -33);
+	}
+
+	{
+		using namespace TemplateMethod;
 	}
     
     return 0;
