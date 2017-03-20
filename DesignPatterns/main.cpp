@@ -17,6 +17,7 @@
 #include <assert.h>
 #include <thread>
 #include <algorithm>
+#include <array>
 #include "AbstractFactory.hpp"
 #include "Builder.hpp"
 #include "AbstractMethod.hpp"
@@ -38,6 +39,7 @@
 #include "Observer.hpp"
 #include "State.hpp"
 #include "Strategy.hpp"
+#include "TemplateMethod.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -406,6 +408,23 @@ int main(int argc, const char * argv[])
 		result = data.calculate();
 		assert(result == -33);
 	}
+    
+    {
+        using namespace TemplateMethod;
+        
+        std::array<std::shared_ptr<CaffeinBeverage>, 2> beverages =
+        {
+            std::make_shared<Tea>(Tea()),
+            std::make_shared<Coffee>(Coffee())
+        };
+        
+        std::for_each(beverages.begin(), beverages.end(),
+            [](std::shared_ptr<CaffeinBeverage> beverage)
+            {
+                beverage->prepareRecipe();
+            }
+        );
+    }
     
     return 0;
 }
