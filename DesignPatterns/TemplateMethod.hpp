@@ -16,7 +16,33 @@
 
 namespace TemplateMethod
 {
-
+    struct CaffeinBeverage
+    {
+        void prepareRecipe();
+        
+        protected:
+        
+        void boilWater();
+        virtual void brew();
+        void pourInCup();
+        virtual void addCondiments();
+    };
+    
+    struct Tea : public CaffeinBeverage
+    {
+        protected:
+        
+        virtual void brew();
+        virtual void addCondiments();
+    };
+    
+    struct Coffee : public CaffeinBeverage
+    {
+    protected:
+        
+        virtual void brew();
+        virtual void addCondiments();
+    };
 }
 
 #endif /* TemplateMethod_hpp */
