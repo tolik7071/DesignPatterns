@@ -38,7 +38,7 @@ namespace TemplateMethod
     
     struct Coffee : public CaffeinBeverage
     {
-    protected:
+        protected:
         
         virtual void brew();
         virtual void addCondiments();
