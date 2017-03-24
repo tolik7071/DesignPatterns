@@ -24,6 +24,11 @@
     std::cout << __FUNCTION_NAME__ << std::endl; \
 }
 
+#define LOG_METHOD()															  \
+{																				  \
+    std::cout << __FUNCTION_NAME__ << "\t" << std::addressof(*this) << std::endl; \
+}
+
 #endif // __cplusplus
 
 #endif /* common_h */

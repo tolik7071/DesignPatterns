@@ -40,6 +40,7 @@
 #include "State.hpp"
 #include "Strategy.hpp"
 #include "TemplateMethod.hpp"
+#include "Visitor.hpp"
 
 int main(int argc, const char * argv[])
 {
@@ -428,6 +429,25 @@ int main(int argc, const char * argv[])
                 beverage->prepareRecipe();
             }
         );
+    }
+    
+    {
+        using namespace VisitorTest;
+        
+        ElementsContainer container;
+        
+        container.mVisitor = std::make_shared<RealVisitor>(RealVisitor());
+        
+        container.mElements.push_back(std::make_shared<ElementA>(ElementA()));
+        container.mElements.push_back(std::make_shared<ElementB>(ElementB()));
+        container.mElements.push_back(std::make_shared<ElementA>(ElementA()));
+        
+        CompositeElement composite;
+        composite.mElemenets.push_back(std::make_shared<ElementA>(ElementA()));
+        composite.mElemenets.push_back(std::make_shared<ElementB>(ElementB()));
+        container.mElements.push_back(std::make_shared<CompositeElement>(composite));
+        
+        container.inspectElements();
     }
     
     return 0;
