@@ -42,6 +42,7 @@
     <ClCompile Include="DesignPatterns\stdafx.cpp" />
     <ClCompile Include="DesignPatterns\Strategy.cpp" />
     <ClCompile Include="DesignPatterns\TemplateMethod.cpp" />
+    <ClCompile Include="DesignPatterns\Visitor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DesignPatterns\AbstractFactory.hpp" />
@@ -68,6 +69,7 @@
     <ClInclude Include="DesignPatterns\Strategy.hpp" />
     <ClInclude Include="DesignPatterns\targetver.h" />
     <ClInclude Include="DesignPatterns\TemplateMethod.hpp" />
+    <ClInclude Include="DesignPatterns\Visitor.hpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{547862E0-D550-4A73-9420-40BE776F4465}</ProjectGuid>
